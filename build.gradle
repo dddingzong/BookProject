@@ -49,4 +49,6 @@ dependencies {
     annotationProcessor ('org.projectlombok:lombok')
     testImplementation ('org.junit.jupiter:junit-jupiter-api')
     testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine')
+
+    implementation('org.mariadb.jdbc:mariadb-java-client')
 }
