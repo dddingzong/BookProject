@@ -51,5 +51,4 @@ dependencies {
     testRuntimeOnly ('org.junit.jupiter:junit-jupiter-engine')
 
     implementation('org.mariadb.jdbc:mariadb-java-client')
-    runtimeOnly ('mysql:mysql-connector-java')
 }
