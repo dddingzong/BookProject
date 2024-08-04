@@ -21,6 +21,23 @@ cache:
 # 프로젝트 내에 권한이 추가된 gradlew를 활용하여 clean, build를 진행한다.
 script: "./gradlew clean build"
 
+before_deploy:
+  - zip -r BookProject *
+  - mkdir -p deploy
+  - mv BookProject.zip deploy/BookProject.zip
+
+#deploy
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: book-springboot-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 #CI 실행 완료 시 메일로 알림
 notifications:
   email:
